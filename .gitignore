@@ -1,0 +1,5 @@
+# Ignore game and library files not meant for distribution
+Assembly-CSharp.dll
+Libraries/
+bin/
+obj/

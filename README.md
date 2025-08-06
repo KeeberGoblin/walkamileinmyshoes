@@ -9,3 +9,8 @@ Pawns lacking footwear accumulate the **Barefoot Damage** hediff which slows the
 - Includes a Biotech gene **Tough Feet** that grants immunity to barefoot damage.
 
 Place this folder in your RimWorld `Mods` directory to play.
+
+### Development
+Game libraries such as `Assembly-CSharp.dll` are only required for building the mod
+and should not be included in the published `Mods` folder. Keeping them out of the
+mod directory prevents type loading conflicts like missing `GameComponentDef` errors.
