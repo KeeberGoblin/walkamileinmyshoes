@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<HediffDefs>
+<Defs>
   <!-- Hediff applied when pawns walk without shoes -->
   <HediffDef ParentName="InjuryBase">
     <defName>BarefootDamage</defName>
@@ -43,7 +43,6 @@
     <defName>Gout</defName>
     <label>gout</label>
     <hediffClass>HediffWithComps</hediffClass>
-    <defaultInjurySeverity>0.2</defaultInjurySeverity>
     <comps>
       <li Class="HediffCompProperties_Immunizable">
         <immunityPerDayNotSick>0.05</immunityPerDayNotSick>
@@ -68,7 +67,6 @@
     <defName>AthletesFoot</defName>
     <label>athlete's foot</label>
     <hediffClass>HediffWithComps</hediffClass>
-    <defaultInjurySeverity>0.1</defaultInjurySeverity>
     <comps>
       <li Class="HediffCompProperties_SeverityPerDay">
         <severityPerDay>0.1</severityPerDay>
@@ -97,7 +95,6 @@
     <defName>TrenchFoot</defName>
     <label>trench foot</label>
     <hediffClass>HediffWithComps</hediffClass>
-    <defaultInjurySeverity>0.2</defaultInjurySeverity>
     <comps>
       <li Class="HediffCompProperties_SeverityPerDay">
         <severityPerDay>0.2</severityPerDay>
@@ -126,4 +123,4 @@
       </li>
     </stages>
   </HediffDef>
-</HediffDefs>
+</Defs>
