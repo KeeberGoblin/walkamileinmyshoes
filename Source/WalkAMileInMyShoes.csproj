@@ -8,12 +8,15 @@
   <ItemGroup>
     <Reference Include="RimWorld">
       <HintPath>../Libraries/RimWorld.dll</HintPath>
+      <Private>false</Private>
     </Reference>
     <Reference Include="Verse">
       <HintPath>../Libraries/Verse.dll</HintPath>
+      <Private>false</Private>
     </Reference>
     <Reference Include="UnityEngine">
       <HintPath>../Libraries/UnityEngine.dll</HintPath>
+      <Private>false</Private>
     </Reference>
   </ItemGroup>
 </Project>
