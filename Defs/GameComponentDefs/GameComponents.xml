@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Defs>
-  <Def Class="GameComponentDef">
+  <GameComponentDef>
     <defName>WalkBarefootDamage</defName>
-    <componentClass>WalkAMileInMyShoes.GameComponent_BarefootDamage</componentClass>
-  </Def>
+    <class>WalkAMileInMyShoes.GameComponent_BarefootDamage</class>
+  </GameComponentDef>
 </Defs>
