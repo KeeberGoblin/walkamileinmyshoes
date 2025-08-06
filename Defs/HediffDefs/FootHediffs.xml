@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<HediffDefs>
+  <!-- Hediff applied when pawns walk without shoes -->
+  <HediffDef ParentName="InjuryBase">
+    <defName>BarefootDamage</defName>
+    <hediffClass>HediffWithComps</hediffClass>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>0.15</severityPerDay>
+      </li>
+    </comps>
+    <tendable>false</tendable>
+    <stages>
+      <li>
+        <label>sore</label>
+        <painFactor>1.1</painFactor>
+      </li>
+      <li>
+        <label>injured</label>
+        <painFactor>1.5</painFactor>
+        <capMods>
+          <li>
+            <capacity>Moving</capacity>
+            <offset>-0.1</offset>
+          </li>
+        </capMods>
+      </li>
+      <li>
+        <label>crippled</label>
+        <painFactor>2.0</painFactor>
+        <capMods>
+          <li>
+            <capacity>Moving</capacity>
+            <offset>-0.4</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <!-- Foot diseases -->
+  <HediffDef ParentName="DiseaseBase">
+    <defName>Gout</defName>
+    <label>gout</label>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultInjurySeverity>0.2</defaultInjurySeverity>
+    <comps>
+      <li Class="HediffCompProperties_Immunizable">
+        <immunityPerDayNotSick>0.05</immunityPerDayNotSick>
+      </li>
+    </comps>
+    <tendable>true</tendable>
+    <stages>
+      <li>
+        <label>flare-up</label>
+        <painFactor>1.4</painFactor>
+        <capMods>
+          <li>
+            <capacity>Moving</capacity>
+            <offset>-0.3</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <HediffDef ParentName="DiseaseBase">
+    <defName>AthletesFoot</defName>
+    <label>athlete's foot</label>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultInjurySeverity>0.1</defaultInjurySeverity>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>0.1</severityPerDay>
+      </li>
+    </comps>
+    <tendable>true</tendable>
+    <stages>
+      <li>
+        <label>itchy</label>
+        <painFactor>1.05</painFactor>
+      </li>
+      <li>
+        <label>raw</label>
+        <painFactor>1.2</painFactor>
+        <capMods>
+          <li>
+            <capacity>Moving</capacity>
+            <offset>-0.1</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <HediffDef ParentName="DiseaseBase">
+    <defName>TrenchFoot</defName>
+    <label>trench foot</label>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultInjurySeverity>0.2</defaultInjurySeverity>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>0.2</severityPerDay>
+      </li>
+    </comps>
+    <tendable>true</tendable>
+    <stages>
+      <li>
+        <label>numb</label>
+        <capMods>
+          <li>
+            <capacity>Moving</capacity>
+            <offset>-0.1</offset>
+          </li>
+        </capMods>
+      </li>
+      <li>
+        <label>necrotic</label>
+        <painFactor>2.0</painFactor>
+        <capMods>
+          <li>
+            <capacity>Moving</capacity>
+            <offset>-0.5</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+</HediffDefs>
