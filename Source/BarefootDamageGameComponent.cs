@@ -4,11 +4,11 @@ using Verse;
 
 namespace WalkAMileInMyShoes
 {
-    public class MapComponent_BarefootDamage : MapComponent
+    public class GameComponent_BarefootDamage : GameComponent
     {
-        public MapComponent_BarefootDamage(Map map) : base(map) { }
+        public GameComponent_BarefootDamage(Game game) : base(game) { }
 
-        public override void MapComponentTick()
+        public override void GameComponentTick()
         {
             if (Find.TickManager.TicksGame % 250 != 0) return;
 
@@ -17,20 +17,23 @@ namespace WalkAMileInMyShoes
 
             GeneDef toughFeet = DefDatabase<GeneDef>.GetNamedSilentFail("ToughFeet");
 
-            foreach (Pawn pawn in map.mapPawns.FreeColonistsAndPrisonersSpawned)
+            foreach (Map map in Find.Maps)
             {
-                if (!pawn.RaceProps.Humanlike || pawn.Dead) continue;
-
-                bool hasFootwear = pawn.apparel?.WornApparel?.Any(a => a.def.apparel.bodyPartGroups.Contains(BodyPartGroupDefOf.Feet)) ?? false;
-                bool immuneByGene = pawn.genes?.HasGene(toughFeet) ?? false;
-
-                if (!hasFootwear && !immuneByGene)
+                foreach (Pawn pawn in map.mapPawns.FreeColonistsAndPrisonersSpawned)
                 {
-                    ApplyBarefootDamage(pawn, barefootDef);
-                }
-                else
-                {
-                    RemoveBarefootDamage(pawn, barefootDef);
+                    if (!pawn.RaceProps.Humanlike || pawn.Dead) continue;
+
+                    bool hasFootwear = pawn.apparel?.WornApparel?.Any(a => a.def.apparel.bodyPartGroups.Contains(BodyPartGroupDefOf.Feet)) ?? false;
+                    bool immuneByGene = pawn.genes?.HasGene(toughFeet) ?? false;
+
+                    if (!hasFootwear && !immuneByGene)
+                    {
+                        ApplyBarefootDamage(pawn, barefootDef);
+                    }
+                    else
+                    {
+                        RemoveBarefootDamage(pawn, barefootDef);
+                    }
                 }
             }
         }
