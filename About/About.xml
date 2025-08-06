@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ModMetaData>
+  <name>Walk A Mile In My Shoes</name>
+  <author>OpenAI</author>
+  <supportedVersions>
+    <li>1.6</li>
+  </supportedVersions>
+  <packageId>openai.walkamileinmyshoes</packageId>
+  <description>
+    Adds a barefoot damage mechanic and several foot-related diseases.
+    Includes biotech additions like genetic tough feet that ignore damage.
+  </description>
+</ModMetaData>
