@@ -2,6 +2,6 @@
 <Defs>
   <GameComponentDef>
     <defName>WalkBarefootDamage</defName>
-    <class>WalkAMileInMyShoes.GameComponent_BarefootDamage</class>
+    <gameComponentClass>WalkAMileInMyShoes.GameComponent_BarefootDamage</gameComponentClass>
   </GameComponentDef>
 </Defs>
