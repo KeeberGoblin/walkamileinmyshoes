@@ -5,7 +5,6 @@
     <label>tough feet</label>
     <description>Gene carriers have leathery feet that ignore barefoot damage.</description>
     <iconPath>UI/Icons/Genes/Hooves</iconPath>
-    <displayCategory>Physical</displayCategory>
     <selectionWeight>0</selectionWeight>
     <biostatCpx>0</biostatCpx>
   </GeneDef>
