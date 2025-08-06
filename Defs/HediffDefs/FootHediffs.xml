@@ -3,6 +3,8 @@
   <!-- Hediff applied when pawns walk without shoes -->
   <HediffDef ParentName="InjuryBase">
     <defName>BarefootDamage</defName>
+    <label>barefoot damage</label>
+    <description>Painful abrasions caused by walking without footwear. The damage worsens the longer a pawn remains barefoot.</description>
     <hediffClass>HediffWithComps</hediffClass>
     <comps>
       <li Class="HediffCompProperties_SeverityPerDay">
@@ -13,10 +15,12 @@
     <stages>
       <li>
         <label>sore</label>
+        <minSeverity>0</minSeverity>
         <painFactor>1.1</painFactor>
       </li>
       <li>
         <label>injured</label>
+        <minSeverity>0.35</minSeverity>
         <painFactor>1.5</painFactor>
         <capMods>
           <li>
@@ -27,6 +31,7 @@
       </li>
       <li>
         <label>crippled</label>
+        <minSeverity>0.75</minSeverity>
         <painFactor>2.0</painFactor>
         <capMods>
           <li>
@@ -42,6 +47,7 @@
   <HediffDef ParentName="DiseaseBase">
     <defName>Gout</defName>
     <label>gout</label>
+    <description>An inflammatory joint disease that causes painful flare-ups and hampers movement.</description>
     <hediffClass>HediffWithComps</hediffClass>
     <comps>
       <li Class="HediffCompProperties_Immunizable">
@@ -66,6 +72,7 @@
   <HediffDef ParentName="DiseaseBase">
     <defName>AthletesFoot</defName>
     <label>athlete's foot</label>
+    <description>A fungal infection that causes itchy, painful skin between the toes.</description>
     <hediffClass>HediffWithComps</hediffClass>
     <comps>
       <li Class="HediffCompProperties_SeverityPerDay">
@@ -76,10 +83,12 @@
     <stages>
       <li>
         <label>itchy</label>
+        <minSeverity>0</minSeverity>
         <painFactor>1.05</painFactor>
       </li>
       <li>
         <label>raw</label>
+        <minSeverity>0.5</minSeverity>
         <painFactor>1.2</painFactor>
         <capMods>
           <li>
@@ -94,6 +103,7 @@
   <HediffDef ParentName="DiseaseBase">
     <defName>TrenchFoot</defName>
     <label>trench foot</label>
+    <description>Tissue damage from prolonged exposure to cold, damp conditions.</description>
     <hediffClass>HediffWithComps</hediffClass>
     <comps>
       <li Class="HediffCompProperties_SeverityPerDay">
@@ -104,6 +114,7 @@
     <stages>
       <li>
         <label>numb</label>
+        <minSeverity>0</minSeverity>
         <capMods>
           <li>
             <capacity>Moving</capacity>
@@ -113,6 +124,7 @@
       </li>
       <li>
         <label>necrotic</label>
+        <minSeverity>0.6</minSeverity>
         <painFactor>2.0</painFactor>
         <capMods>
           <li>
