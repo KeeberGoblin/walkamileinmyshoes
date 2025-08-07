@@ -5,7 +5,9 @@ Pawns lacking footwear accumulate the **Barefoot Damage** hediff which slows the
 
 ### Features
 - Adds several foot-related diseases: gout, athlete's foot, and trench foot.
-- Barefoot damage applies hediffs to each foot when pawns have no shoes.
+- Barefoot damage applies hediffs to each leg when pawns have no shoes.
+- Automatically converts apparel that targets feet to use legs for broader mod compatibility.
+- Damage severity scales with the terrain – harder floors hurt bare feet more.
 - Includes a Biotech gene **Tough Feet** that grants immunity to barefoot damage.
 
 Place this folder in your RimWorld `Mods` directory to play.
