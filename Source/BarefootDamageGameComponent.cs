@@ -23,7 +23,7 @@ namespace WalkAMileInMyShoes
                 {
                     if (!pawn.RaceProps.Humanlike || pawn.Dead) continue;
 
-                    bool hasFootwear = pawn.apparel?.WornApparel?.Any(a => a.def.apparel.bodyPartGroups.Contains(BodyPartGroupDefOf.Feet)) ?? false;
+                    bool hasFootwear = pawn.apparel?.WornApparel?.Any(a => a.def.apparel.bodyPartGroups.Contains(BodyPartGroupDefOf.Legs)) ?? false;
                     bool immuneByGene = pawn.genes?.HasGene(toughFeet) ?? false;
 
                     if (!hasFootwear && !immuneByGene)
@@ -40,13 +40,44 @@ namespace WalkAMileInMyShoes
 
         private void ApplyBarefootDamage(Pawn pawn, HediffDef def)
         {
-            foreach (BodyPartRecord part in pawn.RaceProps.body.AllParts.Where(p => p.def.defName.Contains("Foot")))
+            float multiplier = TerrainDamageMultiplier(pawn);
+            foreach (BodyPartRecord part in pawn.RaceProps.body.AllParts.Where(p => p.def.defName.Contains("Leg")))
             {
-                if (!pawn.health.hediffSet.HasHediff(def, part))
+                Hediff hediff = pawn.health.hediffSet.GetFirstHediffOfDef(def, part);
+                if (hediff == null)
                 {
-                    pawn.health.AddHediff(def, part);
+                    hediff = pawn.health.AddHediff(def, part);
                 }
+
+                var comp = def.CompProps<HediffCompProperties_SeverityPerDay>();
+                float perDay = comp?.severityPerDay ?? 0f;
+                float perInterval = perDay / 240f; // 60k ticks per day / 250 interval
+                hediff.Severity += perInterval * (multiplier - 1f);
             }
+        }
+
+        private float TerrainDamageMultiplier(Pawn pawn)
+        {
+            TerrainDef terrain = pawn.Position.GetTerrain(pawn.Map);
+            if (terrain == null)
+            {
+                return 1f;
+            }
+
+            string name = terrain.defName.ToLowerInvariant();
+            if (name.Contains("carpet") || name.Contains("mat") || name.Contains("moss"))
+            {
+                return 0.5f;
+            }
+            if (name.Contains("soil") || name.Contains("sand") || name.Contains("dirt") || name.Contains("ice"))
+            {
+                return 0.75f;
+            }
+            if (name.Contains("metal") || name.Contains("concrete") || name.Contains("tile") || name.Contains("stone"))
+            {
+                return 1.5f;
+            }
+            return 1f;
         }
 
         private void RemoveBarefootDamage(Pawn pawn, HediffDef def)
